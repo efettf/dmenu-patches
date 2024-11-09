@@ -6,9 +6,8 @@ Subject: [PATCH] fuzzymatch: Add support for fuzzy-matching
 This version of the patch updates the manpage.
 ---
  config.mk |  2 +-
- dmenu.1   |  5 ++-
  dmenu.c   | 90 +++++++++++++++++++++++++++++++++++++++++++++++++++-
- 3 files changed, 94 insertions(+), 3 deletions(-)
+ 2 files changed, 92 insertions(+), 2 deletions(-)
 
 diff --git a/config.mk b/config.mk
 index 137f7c8..6a19175 100644
@@ -23,29 +22,6 @@ index 137f7c8..6a19175 100644
  
  # flags
  CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700 -D_POSIX_C_SOURCE=200809L -DVERSION=\"$(VERSION)\" $(XINERAMAFLAGS)
-diff --git a/dmenu.1 b/dmenu.1
-index 323f93c..e2c5ef4 100644
---- a/dmenu.1
-+++ b/dmenu.1
-@@ -3,7 +3,7 @@
- dmenu \- dynamic menu
- .SH SYNOPSIS
- .B dmenu
--.RB [ \-bfiv ]
-+.RB [ \-bFfiv ]
- .RB [ \-l
- .IR lines ]
- .RB [ \-m
-@@ -40,6 +40,9 @@ which lists programs in the user's $PATH and runs the result in their $SHELL.
- .B \-b
- dmenu appears at the bottom of the screen.
- .TP
-+.B \-F
-+disables fuzzy matching.
-+.TP
- .B \-f
- dmenu grabs the keyboard before reading stdin if not reading from a tty. This
- is faster, but will lock up X until stdin reaches end\-of\-file.
 diff --git a/dmenu.c b/dmenu.c
 index 40f93e0..03e1f45 100644
 --- a/dmenu.c
